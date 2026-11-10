@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLMUN Registrar - Reports & Analytics</title>
+    <link rel="stylesheet" href="admindashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        
+        <!-- Mobile Top Header Bar -->
+        <header class="mobile-top-bar">
+            <div class="brand-mini">
+                <img src="plmunlogo.png" alt="PLMUN Logo">
+                <span>PLMUN Admin</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </header>
+
+        <!-- Fixed Collapsible Side Navigation Drawer -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-circle-wrapper">
+                    <img src="plmunlogo.png" alt="PLMUN Logo" class="sidebar-logo">
+                </div>
+                <p class="school-subtitle">Pamantasan ng Lungsod ng Muntinlupa</p>
+                <h2 class="school-title">PLMUN</h2>
+                <span class="account-badge">Admin Account</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="admindashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="adminmanageappointments.html" class="nav-item">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Manage Appointment</span>
+                </a>
+                <a href="adminqueuemanagement.html" class="nav-item">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <span>Queue Management</span>
+                </a>
+                <a href="adminnotification.html" class="nav-item">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notification</span>
+                    <span class="notification-badge">4</span>
+                </a>
+                <a href="adminreports.html" class="nav-item active">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Report</span>
+                </a>
+                <a href="adminprofile.html" class="nav-item">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn" onclick="openConfirmModal('Sign Out', 'Are you sure you want to log out of your admin account?', function() { window.location.href = '../frontpages/loginform.html'; })">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Mobile Dark Overlay -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+
+        <!-- Main Body Content Container -->
+        <main class="main-content">
+            
+            <!-- Portal Banner with Gold Outline -->
+            <section class="portal-banner highlight-gold-card">
+                <div class="banner-title">
+                    <div class="banner-icon-box">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                    <div>
+                        <h2>Reports & Analytics</h2>
+                        <p class="banner-subtitle-text">Transaction records and analytics May 2026</p>
+                    </div>
+                </div>
+                <div class="banner-breadcrumb">
+                    <div class="admin-profile-pill">
+                        <span class="avatar-initials">AO</span>
+                        <div class="admin-info-text">
+                            <strong>Admin Officer</strong>
+                            <span>Counter Window #1</span>
+                        </div>
+                        <span class="online-status-dot"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary Metric Cards with Gold Outlines -->
+            <section class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 24px;">
+                <div class="stat-card highlight-gold-card">
+                    <div class="stat-icon green"><i class="fa-solid fa-users-line"></i></div>
+                    <div class="stat-details">
+                        <h3>1</h3>
+                        <p>Total Served This Month</p>
+                    </div>
+                </div>
+                <div class="stat-card highlight-gold-card">
+                    <div class="stat-icon blue"><i class="fa-solid fa-stopwatch"></i></div>
+                    <div class="stat-details">
+                        <h3>66 min</h3>
+                        <p>Avg. Wait Time</p>
+                    </div>
+                </div>
+                <div class="stat-card highlight-gold-card">
+                    <div class="stat-icon orange"><i class="fa-solid fa-user-xmark"></i></div>
+                    <div class="stat-details">
+                        <h3>0</h3>
+                        <p>No-shows This Month</p>
+                    </div>
+                </div>
+                <div class="stat-card highlight-gold-card">
+                    <div class="stat-icon dark-green"><i class="fa-solid fa-star"></i></div>
+                    <div class="stat-details">
+                        <h3>N/A</h3>
+                        <p>Student Satisfaction</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two-Column Analytics Layout -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; margin-bottom: 24px;">
+                
+                <!-- Left Column: Daily Transaction Summary with Gold Outline -->
+                <section class="content-card highlight-gold-card">
+                    <div class="card-header" style="margin-bottom: 15px;">
+                        <h2>Daily Transaction Summary</h2>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; align-items: center; background: var(--bg-light); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <div style="flex: 1; min-width: 130px;">
+                            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">FROM:</label>
+                            <input type="date" value="2026-05-01" style="width: 100%; border-radius: 4px; padding: 6px; border: 1px solid var(--border-color); font-size: 12px; background: var(--white); color: var(--text-dark);">
+                        </div>
+                        <div style="flex: 1; min-width: 130px;">
+                            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">TO:</label>
+                            <input type="date" value="2026-05-20" style="width: 100%; border-radius: 4px; padding: 6px; border: 1px solid var(--border-color); font-size: 12px; background: var(--white); color: var(--text-dark);">
+                        </div>
+                    </div>
+
+                    <!-- Bar Chart Representation View -->
+                    <div style="background: var(--bg-light); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: flex-end; height: 120px; border-bottom: 2px solid var(--border-color); padding-bottom: 5px; align-items: flex-end; gap: 10px;">
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; margin-right: 30px;">
+                                <span style="font-size: 11px; font-weight: 600; color: var(--text-muted);">0</span>
+                                <div style="width: 24px; height: 2px; background: #ccc;"></div>
+                                <span style="font-size: 12px; font-weight: 600;">05/18</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                                <span style="font-size: 11px; font-weight: 600; color: var(--moss-green);">1</span>
+                                <div style="width: 24px; height: 80px; background: var(--moss-green); border-radius: 4px 4px 0 0;"></div>
+                                <span style="font-size: 12px; font-weight: 600;">05/19</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px; font-size: 12px; font-weight: 600;">
+                            <span style="display: flex; align-items: center; gap: 5px;"><i class="fa-solid fa-square" style="color: var(--moss-green);"></i> Served</span>
+                            <span style="display: flex; align-items: center; gap: 5px;"><i class="fa-solid fa-square" style="color: #ccc;"></i> Missed</span>
+                        </div>
+                    </div>
+
+                    <!-- Table Summary Breakdown -->
+                    <div class="table-wrapper">
+                        <table class="queue-table" style="font-size: 13px;">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Queue</th>
+                                    <th>Appointed</th>
+                                    <th>Served</th>
+                                    <th>Missed</th>
+                                    <th>Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="openConfirmModal('Report Log', 'View detailed summary for May 19, 2026?', function() { alert('Viewing report breakdown.'); })" style="cursor: pointer;">
+                                    <td>5/19/2026</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td><span style="color: #2E7D32; font-weight: 700;">100%</span></td>
+                                </tr>
+                                <tr onclick="openConfirmModal('Report Log', 'View detailed summary for May 18, 2026?', function() { alert('Viewing report breakdown.'); })" style="cursor: pointer;">
+                                    <td>5/18/2026</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td><span style="color: #D32F2F; font-weight: 700;">0%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Right Column: Services Breakdown & Status Summary -->
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    
+                    <!-- Services Breakdown with Gold Outline -->
+                    <section class="content-card highlight-gold-card" style="flex: 1;">
+                        <div class="card-header" style="margin-bottom: 15px;">
+                            <h2>Services Breakdown This Month</h2>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                                    <span>Transcript of Records (TOR)</span>
+                                    <span>(1)</span>
+                                </div>
+                                <div style="width: 100%; background: var(--bg-light); height: 16px; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden;">
+                                    <div style="width: 100%; background: var(--moss-green); height: 100%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px; color: var(--text-muted);">
+                                    <span>Certificate of Grades (COG)</span>
+                                    <span>(0)</span>
+                                </div>
+                                <div style="width: 100%; background: var(--bg-light); height: 16px; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden;">
+                                    <div style="width: 0%; background: var(--moss-green); height: 100%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px; color: var(--text-muted);">
+                                    <span>Honorable Dismissal</span>
+                                    <span>(0)</span>
+                                </div>
+                                <div style="width: 100%; background: var(--bg-light); height: 16px; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden;">
+                                    <div style="width: 0%; background: var(--moss-green); height: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Request Status Summary with Gold Outline -->
+                    <section class="content-card highlight-gold-card">
+                        <div class="card-header" style="margin-bottom: 15px;">
+                            <h2>Request Status Summary</h2>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center;">
+                            <div style="background: var(--bg-light); padding: 14px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <h3 style="font-size: 22px; font-weight: 800; color: #2E7D32;">0</h3>
+                                <p style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-top: 4px;">Completed</p>
+                            </div>
+                            <div style="background: var(--bg-light); padding: 14px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <h3 style="font-size: 22px; font-weight: 800; color: #0288D1;">0</h3>
+                                <p style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-top: 4px;">Processing</p>
+                            </div>
+                            <div style="background: var(--bg-light); padding: 14px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <h3 style="font-size: 22px; font-weight: 800; color: #ED6C02;">0</h3>
+                                <p style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-top: 4px;">Pending</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom Confirmation Modal Overlay Component -->
+    <div class="modal-overlay" id="customConfirmModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px;">
+        <div class="modal-card highlight-gold-card" style="background: var(--white); border-radius: 12px; padding: 30px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <div style="font-size: 40px; color: var(--gold); margin-bottom: 15px;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 id="modalTitle" style="font-size: 20px; font-weight: 800; color: var(--text-dark); margin-bottom: 10px;">Confirm Action</h3>
+            <p id="modalMessage" style="font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px;">Are you sure you want to proceed with this action?</p>
+            <div style="display: flex; gap: 12px;">
+                <button type="button" onclick="closeConfirmModal()" style="flex: 1; background: #FFFFFF; color: var(--text-dark); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer;">Cancel</button>
+                <button type="button" id="modalConfirmBtn" style="flex: 1; background: var(--moss-green); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer;">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer JS Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.getElementById('sidebar');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            mobileOverlay.classList.toggle('show');
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleSidebar);
+            mobileOverlay.addEventListener('click', toggleSidebar);
+        }
+
+        let confirmCallback = null;
+
+        function openConfirmModal(title, message, callback) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            confirmCallback = callback;
+            document.getElementById('customConfirmModal').style.display = 'flex';
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('customConfirmModal').style.display = 'none';
+            confirmCallback = null;
+        }
+
+        document.getElementById('modalConfirmBtn').addEventListener('click', function() {
+            if (confirmCallback) {
+                confirmCallback();
+            }
+            closeConfirmModal();
+        });
+    </script>
+</body>
+</html>
